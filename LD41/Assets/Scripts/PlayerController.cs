@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D rigid;
     float maximumSpeed = 10f;
+    bool isGrounded;
 
     // Use this for initialization
     void Start () {
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour {
 	
     // Update is called once per frame
     void Update () {
+        isGrounded = Physics2D.Raycast((Vector2)transform.position-new Vector2(0, 1.01f), Vector2.down, 0.5f);
+
         if (Input.GetAxis("Horizontal") > 0)
             rigid.AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
         if (Input.GetAxis("Horizontal") < 0)
@@ -29,7 +32,7 @@ public class PlayerController : MonoBehaviour {
         if (vel.x < -maximumSpeed)
             rigid.velocity = new Vector2(-maximumSpeed, vel.y);
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded)
             rigid.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
     }
 }
