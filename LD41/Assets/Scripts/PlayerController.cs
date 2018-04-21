@@ -16,9 +16,9 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         if (Input.GetAxis("Horizontal") > 0)
-            rigid.AddForce(new Vector3(1, 0, 0), ForceMode2D.Impulse);
+            rigid.AddForce(new Vector2(1, 0), ForceMode2D.Impulse);
         if (Input.GetAxis("Horizontal") < 0)
-            rigid.AddForce(new Vector3(-1, 0, 0), ForceMode2D.Impulse);
+            rigid.AddForce(new Vector2(-1, 0), ForceMode2D.Impulse);
        
         Vector2 vel = rigid.velocity; 
         if (Input.GetAxis("Horizontal") == 0)
@@ -29,5 +29,7 @@ public class PlayerController : MonoBehaviour {
         if (vel.x < -maximumSpeed)
             rigid.velocity = new Vector2(-maximumSpeed, vel.y);
 
+        if (Input.GetButtonDown("Jump"))
+            rigid.AddForce(new Vector2(0, 7), ForceMode2D.Impulse);
     }
 }
