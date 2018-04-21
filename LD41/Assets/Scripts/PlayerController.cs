@@ -21,9 +21,13 @@ public class PlayerController : MonoBehaviour {
             rigid.AddForce(new Vector3(-1, 0, 0), ForceMode2D.Impulse);
        
         Vector2 vel = rigid.velocity; 
+        if (Input.GetAxis("Horizontal") == 0)
+            rigid.velocity = new Vector2(0, vel.y);
+
         if (vel.x > maximumSpeed)
             rigid.velocity = new Vector2(maximumSpeed, vel.y);
         if (vel.x < -maximumSpeed)
             rigid.velocity = new Vector2(-maximumSpeed, vel.y);
+
     }
 }
