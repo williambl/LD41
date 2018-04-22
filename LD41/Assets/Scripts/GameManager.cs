@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager manager;
 
     public GameObject deathCanvas;
+    public UnityEngine.UI.Text scoreText;
 
     // Use this for initialization
     void Start () {
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour {
         StopAllCoroutines();
         PlayerController.playerController.isDead = true;
         deathCanvas.SetActive(true);
-        //TODO: Show score on death canvas
+        scoreText.text = "You survived for " + Time.time + " seconds!";
     }
 
     IEnumerator SpawnTetrominoes () {
