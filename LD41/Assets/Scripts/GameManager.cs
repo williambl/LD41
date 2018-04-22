@@ -18,7 +18,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Die () {
-        //TODO: Stop tetromino spawning
+        Debug.Log("aaa");
+        StopAllCoroutines();
         //TODO: Stop player movement
         //TODO: Make death canvas active
         //TODO: Show score on death canvas
