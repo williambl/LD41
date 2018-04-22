@@ -14,7 +14,8 @@ public class DeathZone : MonoBehaviour {
 		
     }
 
-    void OnTriggerEnter (Collider other) { 
-        GameManager.manager.Die();
+    void OnTriggerEnter (Collider other) {
+        if (other.tag == "Player")
+            GameManager.manager.Die();
     }
 }
