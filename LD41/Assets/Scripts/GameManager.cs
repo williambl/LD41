@@ -18,9 +18,8 @@ public class GameManager : MonoBehaviour {
     }
 
     public void Die () {
-        Debug.Log("aaa");
         StopAllCoroutines();
-        //TODO: Stop player movement
+        PlayerController.playerController.isDead = true;
         //TODO: Make death canvas active
         //TODO: Show score on death canvas
     }

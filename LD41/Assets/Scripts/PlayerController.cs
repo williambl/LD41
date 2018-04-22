@@ -4,18 +4,23 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
-
+    public static PlayerController playerController;
     Rigidbody rigid;
     float maximumSpeed = 10f;
     bool isGrounded;
+    public bool isDead = false;
 
     // Use this for initialization
     void Start () {
+        playerController = this;
         rigid = GetComponent<Rigidbody>();		
     }
 	
     // Update is called once per frame
     void Update () {
+        if (isDead)
+            return;
+
         isGrounded = Physics.Raycast(transform.position-new Vector3(0, 1, 0), Vector2.down, 0.5f);
 
         if (Input.GetAxis("Horizontal") > 0)
