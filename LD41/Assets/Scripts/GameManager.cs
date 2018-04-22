@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour {
         scoreText.text = "You survived for " + Time.time + " seconds!";
     }
 
+    public void Restart () {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
     IEnumerator SpawnTetrominoes () {
         while (true){
             Instantiate(
