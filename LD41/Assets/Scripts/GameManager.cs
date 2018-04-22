@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
     public GameObject[] tetrominoes;
     public static GameManager manager;
 
+    public GameObject deathCanvas;
+
     // Use this for initialization
     void Start () {
         manager = this;
@@ -20,7 +22,7 @@ public class GameManager : MonoBehaviour {
     public void Die () {
         StopAllCoroutines();
         PlayerController.playerController.isDead = true;
-        //TODO: Make death canvas active
+        deathCanvas.SetActive(true);
         //TODO: Show score on death canvas
     }
 
