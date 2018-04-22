@@ -11,6 +11,8 @@ public class CameraMover : MonoBehaviour {
 	
     // Update is called once per frame
     void Update () {
+        if (PlayerController.playerController.isDead)
+            return;
         transform.position += new Vector3(0, 0.002f, 0);
     }
 }
