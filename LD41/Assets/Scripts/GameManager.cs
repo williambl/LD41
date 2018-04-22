@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
         while (true){
             Instantiate(
                     tetrominoes[Random.Range(0, tetrominoes.Length)],
-                    new Vector2(Random.Range(-6, 6), 17),
+                    new Vector3(Random.Range(-6, 6), transform.position.y+17, 0),
                     Quaternion.Euler(90, 0, 0));
             yield return new WaitForSeconds(5f);
         }
