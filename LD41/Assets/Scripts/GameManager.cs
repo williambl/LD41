@@ -5,14 +5,23 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public GameObject[] tetrominoes;
+    public static GameManager manager;
 
     // Use this for initialization
     void Start () {
+        manager = this;
         StartCoroutine(SpawnTetrominoes());
     }
 	
     // Update is called once per frame
     void Update () {
+    }
+
+    public void Die () {
+        //TODO: Stop tetromino spawning
+        //TODO: Stop player movement
+        //TODO: Make death canvas active
+        //TODO: Show score on death canvas
     }
 
     IEnumerator SpawnTetrominoes () {
